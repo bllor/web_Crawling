@@ -1,0 +1,24 @@
+anaconda를 다운받은 뒤,
+jupyter notebook을 저장할 파일로 이동을 한 다음에,
+jupyter-lab을 입력하면 jupyterlab이 실행이 된다
+터미널을 닫지 않으면 어떤 브라우저에서라도 실행할 수 있다.
+
+------------------------------------------------------
+jupyter 둘러보기
+
+jupyter notebook을 많이 사용할 것임
+사용되는 파일을 notebook이라고 할 예정
+
+code셸(code) - 코드를 입력하는 공간
+
+셀을 실행하는 단축키 ctrl+enter || shift+enter 실행하고 다음 셀을 준비시킴
+
+방향키는 shift ^는 ctrl 계산처럼 된 것은 option or alt
+
+read모드에서 a를 누르면 해당셀 위에, b를 누르면 해당 셀 아래에 셀이 생성된다.
+셀을 지운 것을 다시 복구하고 싶으면 z 셀을 복사하려면 cv를 누르면 된다.
+
+셀의 타입에는 code, markdown, raw가 있다.
+markdown에는 글자를 입력할 수 있다.
+code에는 파이썬문법이나 파이썬이 이해할 수 있는 것만 입력
+y를 누르면 code, m을 누르면 markdown으로 변경된다.
