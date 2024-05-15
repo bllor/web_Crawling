@@ -1,0 +1,51 @@
+네이버 블로그
+
+network에서 파일 타입이 xhr인 것들이 json으로 데이터가 전송한다.
+
+headers에는 requests headers를 넣으면 된다.
+
+key들을 사이트와 비교하여 한글이름으로 매핑을 해야 나중에 확인하는데 편하다.
+
+driver = webdriver.Chrome()
+driver.page_source - 현재 페이지의 html정보를 스트링형태로 보여줌
+driver.current_page : 현재 url의 주소
+driver.refresh(): 페이지 새로고침
+driver.find_elements_by_css_selector(가져올 html태그)
+스크롤을 내리는 방법 driver.execute_script("window.scrollTo(0, document.boody.scrollHeight)")
+검색을 할 때 python selenium을 앞에 붙이고 검색을 하면 된다.
+타입이 webElement일 때 get_attribute(태그)로 해당 태그의 내용을 가져올 수 있다.
+[-30:] 마지막 30개를 가져오는 것
+
+explicit wait
+플랙서블하게 wait하는 방법
+[
+from selenium import webdriver
+import time
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+]
+
+driver.get(url)
+driver.find_elements_by_css_selector("li.nav_item") 
+
+[
+subject_element = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located(
+         (By.CSS_SELECTOR, "XXX")
+     )
+ )
+EC.presence_of_elements_located : 특정 엘레멘트가 특정위치에 존재할 때까지 
+특정엘레멘트가 존재할 때까지 10초간 기다린다.
+3초만에 자료를 가져오면 바로 뿌려주고, 10초를 지났을 때도 가져오지 못하면 timeoutException을 뿌린다.
+또한 자료가 없을 경우에도 timeoutException을 뿌린다.
+]
+위의 코드들을 합치면
+
+driver.get("https://naver.com")
+driver_wait = WebDriverWait(driver, 10)
+targets = EC.presence_of_all_elements_located((By.CSS_SELECTOR, "li.nav_itemssss"))
+e_list = driver_wait.until(targets)
+이 형태로 사용할 수 있다.
