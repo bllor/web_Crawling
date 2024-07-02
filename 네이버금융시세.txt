@@ -1,0 +1,50 @@
+네이버 금융 시세 데이터
+
+iframe을 사용하면 html페이지를 하나 더 사용할 수 있다.
+하나의 html페이지 내에 다른 html페이지를 겹쳐서 사용하는 것
+<iframe>태그 처리 방법
+'''
+<div class = "section inner_sub">
+	<iframe name ='day'>
+형태로 구성되어 있다.
+'''
+1.불러오기
+iframe_elements = driver.find_elements_by_css_selector("div.section iframe[name='day']"
+
+2.화면전환
+driver.switch_to.frame(iframe_elements)
+--> iframe html로 변경한다.
+
+3.확인
+driver.page_source
+page_source는 현재 들어와있는 url의 html 소스를 string으로 보여주는 것
+
+4.가져올 태그 입력
+driver.find_elements_by_css_selector("태그 이름")
+
+---------------
+<a href = url>
+url에 들어가면 클릭하는 액션을 하지 않아도 된다.
+하지만 클릭을 해야하는 일이 있으므로 클릭을 하는 방법을 배운다
+
+<a href=~~~/page=2>2</a>와 같이 a태그 클릭 시 변수와 함께 다음 화면으로 전환이 될 때
+1.a태그의 elements를 가져온다.
+a_tag = driver.find_element_by_css_selector("태그이름").text
+a_tag에는 a태그의 엘레먼트가 저장이 된다.
+
+2.다음 엘레멘트로 변환
+next_page = a_tag+1
+next_page_elements = driver.find_element_by_link_text(str(next_page))
+이렇게 하면 넥스트 페이지의 엘레멘트로 변한다.
+
+3.클릭
+next_page_elements.click()
+
+*
+driver.find_elements_by_css_selector().get_attribute("class")
+가져온 엘레먼트에서 class의 이름을 가져올 수 있다.
+
+get_attribute("outerhtml")
+--> 해당 엘레먼트의 자식을 보여준다.
+
+

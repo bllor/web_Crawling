@@ -1,0 +1,24 @@
+네이버 부동산
+
+headers = {개발자 도구 - 네트워크 탭에서 가져오려는 url의 request_header로 만든다.}
+
+res = resquests.get("url",headers = request_header)
+
+
+*
+데이터를 가져오는 것도 중요하고 원하는 포맷으로 만드는 것도 중요하다.
+
+ui로 되어있는 인터페이스는 크롤링하기 힘드므로, 리스트 배열 같은 형태로 변경하여 사용하는 것이 용이하다.
+
+테이터 타입중 xhr로 되어있는 것이 json으로 되어있는 타입
+
+headers = {
+    "Connection": "keep-alive",
+    "Host": "new.land.naver.com",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJFQUxFU1RBVEUiLCJpYXQiOjE2MjMyMzkyMzksImV4cCI6MTYyMzI1MDAzOX0.gdgEApo9bDG5IsSsYDWWeHlAN9LtNh6ejEARMS0FGL8",
+    "Referer": "https://new.land.naver.com/complexes/28?ms=37.4836023,127.0543296,16&a=APT:ABYG:JGC&e=RETAIL",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36",
+}
